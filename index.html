@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/styles.css">
-    <title>Are the Elevators Broken?</title>
+    <title>Are the Elevators Broken at Anomaly?</title>
+    <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico">
 </head>
 <body>
     <div class="title ">Are the Elevators broken ?</div>
@@ -39,7 +40,6 @@
         <source src="./muzak.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <div id="visits">...</div>
 </body>
 <script>
     fetch('/data')
@@ -49,8 +49,8 @@
         console.log(elevators)
 
         for (let lift of elevators) {
-            console.log(lift)
-            console.log(data[lift.id])
+            // console.log(lift)
+            // console.log(data[lift.id])
             if(data[lift.id] == "true"){
                 lift.classList.add("up");
             } else {
@@ -63,6 +63,5 @@
         console.error('Error:', error);
       });
     </script>
-    <script async src="https://api.countapi.xyz/hit/mysite.com/visits?callback=cb"></script>
 </html>
 
