@@ -43,9 +43,9 @@
             const status = data[elevator];
             console.log(status)
 
-            if(status && radio.value === "true") {
+            if(status === "true" && radio.value === "true") {
               radio.checked = true;
-            } else if(!status && radio.value === "false") {
+            } else if(status === "false" && radio.value === "false") {
               radio.checked = true;
             }
           });
