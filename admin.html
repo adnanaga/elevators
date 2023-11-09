@@ -1,0 +1,85 @@
+<!-- FILEPATH: /Users/adnan/Documents - Adnan’s MacBook Pro/Anomaly/elevator2/admin.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Page</title>
+  </head>
+  <body>
+    <h1>Admin Page</h1>
+    <form>
+      <h2>530 Broadway Left</h2>
+        <input type="radio" id="BroadwayLeft" name="BroadwayLeft" value="true">Working
+        <input type="radio" id="BroadwayLeft" name="BroadwayLeft" value="false">Broken
+      <br>
+      <h2>530 Broadway Right</h2>
+        <input type="radio" id="BroadwayRight" name="BroadwayRight" value="true">Working
+        <input type="radio" id="BroadwayRight" name="BroadwayRight" value="false">Broken
+      <br>
+      <h2>85 Spring Street</h2>
+        <input type="radio" id="85SpringStreet" name="85SpringStreet" value="true">Working
+        <input type="radio" id="85SpringStreet" name="85SpringStreet" value="false">Broken
+      <br>
+    <h2>87 Spring Street</h2>
+    <input type="radio" id="87SpringStreet" name="87SpringStreet" value="true">Working
+    <input type="radio" id="87SpringStreet" name="87SpringStreet" value="false">Broken
+  <br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      const radios = document.querySelectorAll('input[type="radio"]');
+      const submitButton = document.querySelector('button[type="submit"]');
+
+      // Fetch data from data.json file
+      fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+          // Set radio button values based on data from data.json file
+          radios.forEach(radio => {
+
+            const elevator = radio.name;
+            console.log(elevator)
+            const status = data[elevator];
+            console.log(status)
+
+            if(status && radio.value === "true") {
+              radio.checked = true;
+            } else if(!status && radio.value === "false") {
+              radio.checked = true;
+            }
+          });
+        });
+
+      // Update data.json file when submit button is clicked
+      submitButton.addEventListener('click', event => {
+        event.preventDefault();
+        const formData = new FormData(event.target.form);
+        const data = {};
+        for (const [key, value] of formData.entries()) {
+          data[key] = value;
+        }
+        fetch('/update_data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+      });
+    </script>
+
+
+    <script>
+      function updateStatus(status) {
+        fetch('/update_status', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ status })
+        })
+      }
+    </script>
+  </body>
+</html>

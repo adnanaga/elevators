@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/styles.css">
+    <title>Are the Elevators Broken?</title>
+</head>
+<body>
+    <div class="title ">Are the Elevators broken ?</div>
+    <div class="container">
+        <div class="buttons">
+    <div class="buttons">
+        <div id="BroadwayLeft" class="elevator-container metal radial"><img src="./images/arrow.png" alt="530 Broadway Left"/>
+        </div>
+        <p>530 Broadway Left</p>
+    </div>
+    <div class="buttons">
+        <div id="BroadwayRight" class="elevator-container metal radial"><img src="./images/arrow.png" alt="530 Broadway Right"/>
+        </div>
+        <p>530 Broadway Right</p>
+    </div>
+    </div>
+    <div class="buttons">
+        <div class="buttons">
+        <div id="85SpringStreet" class="elevator-container metal radial"><img src="./images/arrow.png"  alt="85 Spring Street"/>
+        </div>
+        <p>85 Spring Street</p>
+    </div>
+    <div class="buttons">
+        <div id="87SpringStreet" class="elevator-container metal radial"><img src="./images/arrow.png" alt="87 Spring Street"/>
+        </div>
+            <p>87 Spring Street</p>
+            </div>
+        </div>
+    </div>
+    <button class="muzak metal radial" onclick="document.getElementById('myAudio').play()">🎵</button>
+    <audio controls loop hidden id="myAudio">
+        <source src="./muzak.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="visits">...</div>
+</body>
+<script>
+    fetch('/data')
+      .then(response => response.json())
+      .then(data => {
+        let elevators = document.getElementsByClassName('elevator-container');
+        console.log(elevators)
+
+        for (let lift of elevators) {
+            console.log(lift)
+            console.log(data[lift.id])
+            if(data[lift.id] == "true"){
+                lift.classList.add("up");
+            } else {
+                lift.classList.add("down");
+            }
+            // lift.classList.add(data[lift.id] ? "up" : "down");
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    </script>
+    <script async src="https://api.countapi.xyz/hit/mysite.com/visits?callback=cb"></script>
+</html>
+
