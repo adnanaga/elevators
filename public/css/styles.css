@@ -17,7 +17,7 @@ html body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 100vh;
+    height: 100svh;
     margin-top: 0;
     background-image: url("./background.jpeg");
     background-repeat: no-repeat;
