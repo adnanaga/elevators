@@ -27,18 +27,16 @@ html body {
 }
 
 .title {
-  font-family: 'Roboto-Bold';
-    width:90%;
-    font-size:6vw;
+    font-family: 'Roboto-Bold';
+    font-size:3vw;
     color: #fff;
-    padding: 5%;
     text-align: center;
-    /* background-color: #000; */
-    border-radius: 20px;
 }
 
-.plaque {
-
+.black {
+  padding: 3%;
+  border-radius: 20px;
+  background-color: #000;
 }
 
 .container{
@@ -47,6 +45,7 @@ html body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+    height:40%;
 }
 
 .buttons{
@@ -83,8 +82,10 @@ img {
 
 p {
     text-align: center;
-    font-size: 4vw;
+    font-size: 2vw;
 }
+
+
 
 /* globals */
 
@@ -357,3 +358,29 @@ a { text-decoration: none; display: block; }
       -webkit-radial-gradient( 50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);
   }
 
+  @media only screen and (max-width: 767px) {
+    html body {
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+
+    .title {
+        font-size: 4vw; /* Adjust title font size for smaller screens */
+    }
+
+    .container {
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .elevator-container {
+        width: 100px; /* Adjust width for smaller screens */
+        height: 100px; /* Adjust height for smaller screens */
+    }
+
+    .muzak {
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    p {
+        font-size: 3vw; /* Adjust paragraph font size for smaller screens */
+    }
+}
