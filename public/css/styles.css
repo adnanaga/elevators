@@ -24,6 +24,8 @@ html body {
     background-size: cover;
     color: #fff;
     background-position: center;
+    padding-bottom: constant(safe-area-inset-bottom); /* Account for Safari bottom toolbar */
+    margin-bottom: constant(safe-area-inset-bottom); /* Additional margin if needed */
 }
 
 .title {
