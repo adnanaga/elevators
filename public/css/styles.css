@@ -33,10 +33,13 @@ html body {
     font-size:3vw;
     color: #fff;
     text-align: center;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .black {
-  padding: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   border-radius: 20px;
   background-color: #000;
 }
@@ -47,7 +50,7 @@ html body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    height:40%;
+    height:40vh;
 }
 
 .buttons{
@@ -85,6 +88,9 @@ img {
 p {
     text-align: center;
     font-size: 2vw;
+    width: 100%;
+    padding-left: 6%;
+    padding-right: 6%;
 }
 
 
@@ -370,7 +376,7 @@ a { text-decoration: none; display: block; }
     }
 
     .container {
-        height: auto; /* Adjust height for smaller screens */
+        /* height: auto; Adjust height for smaller screens */
     }
 
     .elevator-container {
