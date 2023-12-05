@@ -26,6 +26,8 @@ html body {
     background-position: center;
     padding-bottom: constant(safe-area-inset-bottom); /* Account for Safari bottom toolbar */
     margin-bottom: constant(safe-area-inset-bottom); /* Additional margin if needed */
+    min-height: 100vh; 
+    min-height: -webkit-fill-available;
 }
 
 .title {
@@ -50,7 +52,6 @@ html body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    height:40vh;
 }
 
 .buttons{
@@ -376,7 +377,7 @@ a { text-decoration: none; display: block; }
     }
 
     .container {
-        /* height: auto; Adjust height for smaller screens */
+        height: auto;
     }
 
     .elevator-container {
